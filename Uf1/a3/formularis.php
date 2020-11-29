@@ -31,7 +31,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $dir_subida = 'imatges/';
     $fichero_subido = $dir_subida . basename($_FILES['archivo']['name']);
     if (move_uploaded_file($_FILES['archivo']['tmp_name'], $fichero_subido)){
-        echo "ok";
+        echo "<img src=\"$fichero_subido\"/img>";
     }else{
         echo "no ok";
     }
@@ -50,11 +50,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 </head>
 
 <body>
-
+<form enctype="multipart/form-data" action="formularis.php" method="post" id="myform" name="myform">
 <div style="margin: 30px 10%;">
 <h3>My form</h3>
-<form enctype="multipart/form-data" action="formularis.php" method="post" id="myform" name="myform">
-
+1
     <label>Text</label> <input type="text" value="" size="30" maxlength="100" name="mytext" id="" /><br /><br />
 
     <input type="radio" name="myradio" value="1" /> First radio
@@ -76,7 +75,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     <textarea name="mytextarea" id="" rows="3" cols="30">
 Text area
     </textarea> <br /><br />
-
+    <label>Archivo</label> <input type="file" name="archivo"/>
     <button id="mysubmit" type="submit">Submit</button><br /><br />
 
 </form>

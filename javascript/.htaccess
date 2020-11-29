@@ -1,0 +1,5 @@
+AuthUserFile /var/www/html/aferrer/javascript/.htpasswd
+AuthName DirectoriProtegit
+AuthType Basic
+Require user armand
+Require user aferrer
